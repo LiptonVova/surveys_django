@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <title> Результаты опроса {{question.id }}</title>
+    </head>
+
+    <body> 
+        <h1> Результаты опроса {{question.question_text }}</h1>
+
+        <ul> 
+            {% for choice in question.choice_set.all %} 
+                <li> 
+                    {{choice.choice_text }} -- {{ chouce.votes }} vote {{choice.votes}}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <a href="{% url 'polls:detail' question.id %}"> Проголосовать еще раз </a>
+
+    </body>
+
+</html>
